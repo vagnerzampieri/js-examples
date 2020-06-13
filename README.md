@@ -122,3 +122,8 @@ mutation {
  - `npm run dev-start`
  - `cd example-14/certification`
  - `npm run dev-start`
+
+#### React Router 6.0
+ - React Router 6.0 - https://www.youtube.com/watch?v=G7hHdcW4kQY
+ - `cd example-15`
+ - `npm start`
