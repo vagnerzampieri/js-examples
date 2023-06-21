@@ -127,3 +127,12 @@ mutation {
  - React Router 6.0 - https://www.youtube.com/watch?v=G7hHdcW4kQY
  - `cd example-15`
  - `npm start`
+
+#### Node.js + TypeScript + tsx + tsup + vitest + zod
+ - 4 libs que não podem faltar no Node.js com TypeScript (Setup Node.js + TypeScript) - https://www.youtube.com/watch?v=mxiRCcnsKDw
+  - `cd example-16`
+  - `npm run start`
+  - `npm run start:dev`
+  - `npm run build`
+  - `node dist/server.js`
+  - `npm run test`
