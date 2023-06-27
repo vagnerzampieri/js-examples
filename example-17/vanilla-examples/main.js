@@ -31,3 +31,50 @@ function showAge({ age }) {
 }
 
 showAge(user);
+
+// Rest operator
+
+// const { name, ...rest } = user;
+
+// document.body.innerHTML = JSON.stringify({ rest });
+
+const arr = [1, 2, 3, 4, 5];
+// const [a, b, ...c] = arr;
+// const [a, b, c] = arr;
+const [a, , ...c] = arr;
+
+// document.body.innerHTML = JSON.stringify({ a, b, c });
+document.body.innerHTML = JSON.stringify({ a, c });
+
+// Short syntax
+
+const name = 'João';
+const height = 190;
+
+const person = {
+  name,
+  height,
+};
+
+document.body.innerHTML = JSON.stringify(person);
+
+// Optional chaining
+
+document.body.innerHTML = user.address?.street;
+
+const user2 = {
+  name: 'João',
+  lastName: 'Marques',
+  age: 20,
+  address: {
+    street: 'Rua 1',
+    number: 123
+  },
+  showFullName() {
+    return `${this.name} ${this.lastName}`;
+  }
+}
+
+document.body.innerHTML = user2.showFullName?.();
+
+// Métodos de array
