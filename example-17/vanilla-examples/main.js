@@ -123,3 +123,45 @@ document.body.innerHTML = JSON.stringify(sum);
 const message = `Hello World!, ${user.name}`;
 
 document.body.innerHTML = message;
+
+// Promisess
+
+// .then()/catch()
+
+const sumTwoNumbers = (a, b) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(a + b);
+    }, 2000);
+  });
+}
+
+sumTwoNumbers(10, 20)
+  .then(soma => {
+    document.body.innerHTML = soma;
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+
+// fetch('https://api.github.com/users/vagnerzampieri')
+//   .then(response => response.json().then(body => console.log(body.name)))
+//   .catch(error => console.log(error));
+
+// fetch('https://api.github.com/users/vagnerzampieri')
+//   .then(response => response.json())
+//   .then(body => console.log(body.name))
+//   .catch(error => console.log(error))
+//   .finally(() => console.log('finally'));
+
+// async/await
+
+async function findGithubUser(username) {
+  const response = await fetch(`https://api.github.com/users/${username}`);
+  const body = await response.json();
+
+  console.log(body);;  
+} 
+
+findGithubUser('vagnerzampieri');
