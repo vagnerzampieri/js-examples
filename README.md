@@ -136,3 +136,10 @@ mutation {
   - `npm run build`
   - `node dist/server.js`
   - `npm run test`
+
+#### Vanilla JS
+ - TUDO que você deve estudar de JavaScript antes do React - https://www.youtube.com/watch?v=37SwqREHRGI
+  - `cd example-17`
+  - `cd vanilla-examples`
+  - `npm install`
+  - `npm run dev`
