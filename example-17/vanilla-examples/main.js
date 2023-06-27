@@ -78,3 +78,48 @@ const user2 = {
 document.body.innerHTML = user2.showFullName?.();
 
 // Métodos de array
+// map, filter, reduce, find, findIndex, some, every
+
+const arr2 = [1, 2, 3, 4, 5];
+
+const newArra2 = arr2.map(item => {
+  if (item % 2 === 0) {
+    return item * 2;
+  }
+
+  return item;
+});
+
+document.body.innerHTML = JSON.stringify(newArra2);
+
+const newArra3 = arr2
+  .filter(item => item % 2 === 0)
+  .map(item => item * 2);
+
+document.body.innerHTML = JSON.stringify(newArra3);
+
+const everyItemsAsNumber = arr2.every(item => typeof item === 'number');
+
+document.body.innerHTML = JSON.stringify(everyItemsAsNumber);
+
+const someItemsAsNotNumber = arr2.some(item => typeof item !== 'number');
+
+document.body.innerHTML = JSON.stringify(someItemsAsNotNumber);
+
+const par = arr2.find(item => item % 2 === 0);
+
+document.body.innerHTML = JSON.stringify(par);
+
+const parIndex = arr2.findIndex(item => item % 2 === 0);
+
+document.body.innerHTML = JSON.stringify(parIndex);
+
+const sum = arr2.reduce((total, current) => total += current, 0);
+
+document.body.innerHTML = JSON.stringify(sum);
+
+// Template literals
+
+const message = `Hello World!, ${user.name}`;
+
+document.body.innerHTML = message;
