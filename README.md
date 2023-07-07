@@ -143,3 +143,7 @@ mutation {
   - `cd vanilla-examples`
   - `npm install`
   - `npm run dev`
+
+#### Feed News - Nodejs + Typescript + Express + Graphql + MongoDB
+  - `cd example-18`
+  -
