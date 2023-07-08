@@ -6,7 +6,9 @@ export const User = z.object({
   name: z.string(),
   email: z.string().email(),
   nickname: z.string(),
-  location: z.string()
+  location: z.string(),
+  password: z.string(),
+  password_confirmation: z.string()
 });
 
 export type User = z.infer<typeof User>;
