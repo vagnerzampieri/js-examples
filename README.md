@@ -146,4 +146,10 @@ mutation {
 
 #### Feed News - Nodejs + Typescript + Express + Graphql + MongoDB
   - `cd example-18`
-  -
+  - `npm run start:dev`
+  ```
+curl --location 'localhost:5000' \
+--header 'Origin: http://localhost:3000' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json'
+  ```
