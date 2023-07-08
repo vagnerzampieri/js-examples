@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { buildSchema } from 'graphql';
 import { graphqlHTTP } from 'express-graphql';
+import { z } from 'zod';
 
 const users = [
   { id: 1, name: 'John Doe', email: 'jonh@doe.com', age: 18 },
@@ -35,12 +36,13 @@ const schema = buildSchema(`
   }
 `);
 
-type User = {
-  id: number;
-  name: string;
-  email: string;
-  age: number;
-};
+const UserInputSchema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  age: z.number().int().positive(),
+});
+
+type User = z.infer<typeof UserInputSchema> & { id: number };
 
 type UserInput = Pick<User, 'name' | 'email' | 'age'>;
 
