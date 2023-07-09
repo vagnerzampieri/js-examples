@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "tsx src/index.ts",
     "start:dev": "tsx watch src/index.ts ",
+    "start:server": "tsx watch src/server.ts",
     "dev": "tsup src/index.ts --watch --onSuccess 'node dist/index.js'",
     "build": "tsup src/index.ts"
   },
