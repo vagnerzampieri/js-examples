@@ -1,11 +1,12 @@
-import { WithId } from "mongodb";
+import { ObjectId, WithId } from "mongodb";
 import { z } from "zod";
 import { db } from "../../db";
 
 export const Post = z.object({
-  user_id: z.string().optional(),
+  _id: z.instanceof(ObjectId),
+  user_id: z.instanceof(ObjectId),
   content: z.string(),
-  parent_id: z.string().optional(),
+  parent_id: z.instanceof(ObjectId).optional(),
 });
 
 export type Post = z.infer<typeof Post>;

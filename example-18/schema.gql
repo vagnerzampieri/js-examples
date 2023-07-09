@@ -11,5 +11,6 @@ type PostType {
 }
 
 type Query {
+  post(id: ID!): PostType!
   posts: [PostType!]!
 }
