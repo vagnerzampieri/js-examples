@@ -1,7 +1,7 @@
+import { ObjectId } from "mongodb";
 import { Arg, ID, Query, Resolver } from "type-graphql";
 import { Posts } from "./posts.model";
 import { PostType } from "./posts.type";
-import { ObjectId } from "mongodb";
 
 @Resolver(PostType)
 export class PostsResolver {
