@@ -8,7 +8,7 @@ export class PostType {
   @Field(type => String)
   content: string;
 
-  @Field(type => ID, { nullable: true })
+  @Field(type => ID)
   user_id: string;
 
   @Field(type => ID, { nullable: true })
