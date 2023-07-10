@@ -3,11 +3,22 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Mutation {
+  createPost(post: PostInput!): PostType!
+}
+
+input PostInput {
+  _id: ID
+  content: String!
+  parent_id: ID
+  user_id: ID!
+}
+
 type PostType {
   _id: ID!
   content: String!
   parent_id: ID
-  user_id: ID
+  user_id: ID!
 }
 
 type Query {
