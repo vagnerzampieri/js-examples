@@ -148,8 +148,31 @@ mutation {
   - `cd example-18`
   - `npm run start:dev`
   ```
-curl --location 'localhost:5000' \
---header 'Origin: http://localhost:3000' \
---header 'Accept: application/json' \
---header 'Content-Type: application/json'
+  query Queries {
+    users {
+      _id
+      nickname
+    }
+
+    posts {
+      _id
+      content
+      user_id
+    }
+  }
+
+  {
+    "post": {
+      "content": "This is a content D",
+      "user_id": "64ab5260b326d4e9b1070bf8"
+    }
+  }
+
+  mutation Mutation($post: PostInput!) {
+    createPost(post: $post) {
+      _id
+      user_id
+      content
+    }
+  }
   ```
