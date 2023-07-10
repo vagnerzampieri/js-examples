@@ -144,7 +144,7 @@ mutation {
   - `npm install`
   - `npm run dev`
 
-#### Feed News - Nodejs + Typescript + Express + Graphql + MongoDB
+#### Feed News - Nodejs + Typescript + Apollo Server + Graphql + Zod + MongoDB
   - `cd example-18`
   - `npm run start:dev`
   ```
