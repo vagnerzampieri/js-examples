@@ -4,10 +4,11 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone'
 import { buildSchema } from 'type-graphql';
 import { PostsResolver } from './api/posts/posts.resolver';
+import { UsersResolver } from './api/users/users.resolvers';
 
 async function main() {
   const schema = await buildSchema({
-    resolvers: [PostsResolver],
+    resolvers: [UsersResolver, PostsResolver],
     emitSchemaFile: true,
   });
 

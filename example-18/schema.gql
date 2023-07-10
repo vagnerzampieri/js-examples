@@ -7,10 +7,20 @@ type PostType {
   _id: ID!
   content: String!
   parent_id: ID
-  user_id: ID!
+  user_id: ID
 }
 
 type Query {
   post(id: ID!): PostType!
   posts: [PostType!]!
+  user(id: ID!): UserType!
+  users: [UserType!]!
+}
+
+type UserType {
+  _id: ID!
+  email: String!
+  location: String
+  name: String!
+  nickname: String!
 }
