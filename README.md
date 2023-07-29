@@ -176,3 +176,11 @@ mutation {
     }
   }
   ```
+
+#### Vite + Vanilla JS
+  - [Vite + Vanilla JS - Perfeito para JavaScript, HTML e CSS!](https://www.youtube.com/watch?v=fR0pYguVyQA)
+  - `cd example-19`
+  - `npm run dev`
+  - `npm run build`
+  - `npm run preview`
+  - `python -m http.server -d dist 3000` - Vai rodar o build na porta 3000
