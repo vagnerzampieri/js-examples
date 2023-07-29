@@ -155,8 +155,41 @@ export default function index() {
   // filter() - returns an array based on condition
   const todoCompleted = todos.filter(function(todo) {
     return todo.isCompleted === true;
+  }).map(function(todo) {
+    return todo.text;
   });
 
   console.log(todoCompleted);
+
+  // conditionals
+  const x = 10;
+
+  if (x === 10) {
+    console.log('x is 10');
+  } else if (x > 10) {
+    console.log('x is greater than 10');
+  } else {
+    console.log('x is less than 10');
+  }
+
+  // switch
+  const color = 'red';
+
+  switch(color) {
+    case 'red':
+      console.log('color is red');
+      break;
+    case 'blue':
+      console.log('color is blue');
+      break;
+    default:
+      console.log('color is not red or blue');
+      break;
+  }
+
+  // ternary operator
+
+  const color2 = x > 10 ? 'red' : 'blue';
+  console.log(color2);
 
 }
