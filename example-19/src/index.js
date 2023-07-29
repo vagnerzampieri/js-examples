@@ -139,17 +139,20 @@ export default function index() {
     console.log(todo.text);
   }
 
-  // forEach, map, filter
+  // high order array methods
+  // forEach() - loops through array
   todos.forEach(function(todo) {
     console.log(todo.text);
   });
 
+  // map() - loops through array and creates new array
   const todoText = todos.map(function(todo) {
     return todo.text;
   });
 
   console.log(todoText);
 
+  // filter() - returns an array based on condition
   const todoCompleted = todos.filter(function(todo) {
     return todo.isCompleted === true;
   });
