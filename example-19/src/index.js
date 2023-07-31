@@ -227,18 +227,36 @@ export default function index() {
 
   // constructor function
 
-  function Person(firstName, lastName, dob) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.dob = new Date(dob);
-  }
+  // function Person(firstName, lastName, dob) {
+  //   this.firstName = firstName;
+  //   this.lastName = lastName;
+  //   this.dob = new Date(dob);
+  // }
 
-  Person.prototype.getBirthYear = function() {
-    return this.dob.getFullYear();
-  }
+  // Person.prototype.getBirthYear = function() {
+  //   return this.dob.getFullYear();
+  // }
 
-  Person.prototype.getFullName = function() {
-    return `${this.firstName} ${this.lastName}`;
+  // Person.prototype.getFullName = function() {
+  //   return `${this.firstName} ${this.lastName}`;
+  // }
+
+  // class
+
+  class Person {
+    constructor(firstName, lastName, dob) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.dob = new Date(dob);
+    }
+
+    getBirthYear() {
+      return this.dob.getFullYear();
+    }
+
+    getFullName() {
+      return `${this.firstName} ${this.lastName}`;
+    }
   }
 
   // instantiate object
@@ -252,5 +270,4 @@ export default function index() {
   console.log(person1.dob.getFullYear());
   console.log(person1.getBirthYear());
   console.log(person1.getFullName());
-
 }
