@@ -192,4 +192,37 @@ export default function index() {
   const color2 = x > 10 ? 'red' : 'blue';
   console.log(color2);
 
+  // functions
+  function addNums(num1, num2) {
+    return num1 + num2;
+  }
+
+  console.log(addNums(5, 4));
+
+  // arrow functions
+
+  const addNums2 = (num1, num2) => {
+    return num1 + num2;
+  }
+
+  console.log(addNums2(5, 4));
+
+  // arrow functions - one line
+
+  const addNums3 = (num1, num2) => num1 + num2;
+
+  console.log(addNums3(5, 4));
+
+  // arrow functions - one line - one parameter
+
+  const addNums4 = num1 => num1 + 5;
+
+  console.log(addNums4(5));
+
+  // arrow functions - one line - no parameter
+
+  const addNums5 = () => 5;
+
+  console.log(addNums5());
+
 }
