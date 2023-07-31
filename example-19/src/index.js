@@ -225,4 +225,32 @@ export default function index() {
 
   console.log(addNums5());
 
+  // constructor function
+
+  function Person(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+  }
+
+  Person.prototype.getBirthYear = function() {
+    return this.dob.getFullYear();
+  }
+
+  Person.prototype.getFullName = function() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  // instantiate object
+
+  const person1 = new Person('john', 'doe', '4-3-1980');
+  const person2 = new Person('mary', 'smith', '3-6-1970');
+
+  console.log(person1);
+  console.log(person2);
+  console.log(person1.dob);
+  console.log(person1.dob.getFullYear());
+  console.log(person1.getBirthYear());
+  console.log(person1.getFullName());
+
 }
