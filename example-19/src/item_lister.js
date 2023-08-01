@@ -26,10 +26,10 @@ console.log(document.forms[0].method); // get
 console.log(document.forms[0].action); // http://localhost:5173/item_lister.html
 console.log(document.links); // HTMLCollection(1) [a#clearBtn.btn.btn-dark.btn-block]
 console.log(document.links[0]); // <a id="clearBtn" class="btn btn-dark btn-block" href="#">Clear</a>
-console.log(document.links[0].id); // clearBtn
-console.log(document.links[0].className); // btn btn-dark btn-block
-console.log(document.links[0].classList); // DOMTokenList(3) ["btn", "btn-dark", "btn-block", value: "btn btn-dark btn-block"]
-console.log(document.links[0].classList[0]); // btn
+// console.log(document.links[0].id); // clearBtn
+// console.log(document.links[0].className); // btn btn-dark btn-block
+// console.log(document.links[0].classList); // DOMTokenList(3) ["btn", "btn-dark", "btn-block", value: "btn btn-dark btn-block"]
+// console.log(document.links[0].classList[0]); // btn
 console.log(document.images); // HTMLCollection []
 console.log(document.scripts); // HTMLCollection(2) [script, script]
 
@@ -114,3 +114,79 @@ for (let i = 0; i < odd.length; i++) {
   odd[i].style.backgroundColor = '#f4f4f4';
   even[i].style.backgroundColor = '#ccc';
 }
+
+// TRAVERSING THE DOM //
+
+let itemList = document.querySelector('#items');
+
+// parentNode
+console.log(itemList.parentNode); // <div class="container">...</div>
+itemList.parentNode.style.backgroundColor = '#f4f4f4';
+
+// parentElement
+console.log(itemList.parentElement); // <div class="container">...</div>
+// itemList.parentElement.style.backgroundColor = '#f4f4f4';
+
+// childNodes
+console.log(itemList.childNodes); // NodeList(9) [text, li.list-group-item, text, li.list-group-item, text, li.list-group-item, text, li.list-group-item, text]
+
+// children
+console.log(itemList.children); // HTMLCollection(4) [li.list-group-item, li.list-group-item, li.list-group-item, li.list-group-item]
+console.log(itemList.children[1]); // <li class="list-group-item">Item 2</li>
+// itemList.children[1].style.backgroundColor = 'yellow';
+
+// firstChild
+console.log(itemList.firstChild); // #text
+// firstElementChild
+console.log(itemList.firstElementChild); // <li class="list-group-item">Item 1</li>
+// itemList.firstElementChild.textContent = 'Hello 1';
+
+// lastChild
+console.log(itemList.lastChild); // #text
+// lastElementChild
+console.log(itemList.lastElementChild); // <li class="list-group-item">Item 4</li>
+// itemList.lastElementChild.textContent = 'Hello 4';
+
+// nextSibling
+console.log(itemList.nextSibling); // #text
+// nextElementSibling
+console.log(itemList.nextElementSibling); // <div class="card card-body">...</div>
+
+// previousSibling
+console.log(itemList.previousSibling); // #text
+// previousElementSibling
+console.log(itemList.previousElementSibling); // <h3 class="title">Hello</h3>
+// itemList.previousElementSibling.style.color = 'green';
+
+// createElement
+
+// create a div
+const newDiv = document.createElement('div');
+console.log(newDiv); // <div></div>
+
+// add class
+newDiv.className = 'hello';
+
+// add id
+newDiv.id = 'hello1';
+
+// add attribute
+newDiv.setAttribute('title', 'Hello Div');
+
+// create text node
+const newDivText = document.createTextNode('Hello World');
+console.log(newDivText); // #text
+
+// add text to div
+newDiv.appendChild(newDivText);
+console.log(newDiv); // <div class="hello" id="hello1" title="Hello Div">Hello World</div>
+
+// insert newDiv into DOM
+const container = document.querySelector('header .container');
+const h1 = document.querySelector('header h1');
+console.log(newDiv); // <div class="hello" id="hello1" title="Hello Div">Hello World</div>
+
+container.insertBefore(newDiv, h1);
+console.log(newDiv); // <div class="hello" id="hello1" title="Hello Div">Hello World</div>
+
+newDiv.style.fontSize = '30px';
