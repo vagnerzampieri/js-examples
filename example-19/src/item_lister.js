@@ -56,3 +56,61 @@ console.log(items[1].textContent); // Item 2
 // items[1].textContent = 'Hello 2';
 // items[1].style.fontWeight = 'bold';
 // items[1].style.backgroundColor = 'yellow';
+
+for (let i = 0; i < items.length; i++) {
+  items[i].style.backgroundColor = '#f4f4f4';
+}
+
+// GET ELEMENTS BY TAG NAME //
+
+const li = document.getElementsByTagName('li');
+console.log(li); // HTMLCollection(4) [li.list-group-item, li.list-group-item, li.list-group-item, li.list-group-item]
+console.log(li[0]); // <li class="list-group-item">Item 1</li>
+console.log(li[0].textContent); // Item 1
+console.log(li[1].textContent); // Item 2
+// li[1].textContent = 'Hello 2';
+// li[1].style.fontWeight = 'bold';
+// li[1].style.backgroundColor = 'yellow';
+
+// querySelector //
+
+const header = document.querySelector('#main-header');
+console.log(header); // <h1 id="main-header" class="title">Item Lister</h1>
+// header.style.borderBottom = 'solid 4px #ccc';
+
+const input = document.querySelector('input');
+console.log(input); // <input type="text" class="form-control" id="item" placeholder="Add New Item...">
+// input.value = 'Hello World';
+
+const submit = document.querySelector('input[type="submit"]');
+console.log(submit); // <input type="submit" value="Submit" class="btn btn-dark btn-block">
+submit.value = 'SEND';
+
+const item = document.querySelector('.list-group-item');
+console.log(item); // <li class="list-group-item">Item 1</li>
+// item.style.color = 'red';
+
+const lastItem = document.querySelector('.list-group-item:last-child');
+console.log(lastItem); // <li class="list-group-item">Item 4</li>
+// lastItem.style.color = 'blue';
+
+const secondItem = document.querySelector('.list-group-item:nth-child(2)');
+console.log(secondItem); // <li class="list-group-item">Item 2</li>
+// secondItem.style.color = 'coral';
+
+// querySelectorAll //
+
+const titles = document.querySelectorAll('.title');
+console.log(titles); // NodeList(2) [h1#header-title.title, h3.title]
+console.log(titles[0]); // <h1 id="header-title" class="title">Item Lister</h1>
+console.log(titles[1]); // <h3 class="title">Hello</h3>
+// titles[0].textContent = 'Hello';
+
+const odd = document.querySelectorAll('li:nth-child(odd)');
+const even = document.querySelectorAll('li:nth-child(even)');
+console.log(odd); // NodeList(2) [li.list-group-item, li.list-group-item]
+console.log(even); // NodeList(2) [li.list-group-item, li.list-group-item]
+for (let i = 0; i < odd.length; i++) {
+  odd[i].style.backgroundColor = '#f4f4f4';
+  even[i].style.backgroundColor = '#ccc';
+}

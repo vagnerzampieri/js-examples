@@ -180,6 +180,7 @@ mutation {
 #### Vite + Vanilla JS
   - [Vite + Vanilla JS - Perfeito para JavaScript, HTML e CSS!](https://www.youtube.com/watch?v=fR0pYguVyQA)
   - [Javascript Crash Course](https://www.youtube.com/watch?v=hdI2bqOjy3c)
+  - Tem muitos exemplos de como usar o Vanilla JS
   - `cd example-19`
   - `npm run dev`
   - `npm run build`
