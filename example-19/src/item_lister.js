@@ -190,3 +190,39 @@ container.insertBefore(newDiv, h1);
 console.log(newDiv); // <div class="hello" id="hello1" title="Hello Div">Hello World</div>
 
 newDiv.style.fontSize = '30px';
+
+// EVENTS //
+
+const button = document.getElementById('button').addEventListener('click', buttonClick);
+
+function buttonClick(e) {
+  // console.log('Button clicked');
+  // document.getElementById('header-title').textContent = 'Changed';
+  // document.querySelector('#main').style.backgroundColor = '#f4f4f4';
+  // console.log(e); // MouseEvent {isTrusted: true, screenX: 120, screenY: 120, clientX: 120, clientY: 120, …}
+  // console.log(e.target); // <button id="button" class="btn btn-dark">Click Me</button>
+  // console.log(e.target.id); // button
+  // console.log(e.target.className); // btn btn-dark
+  // console.log(e.target.classList); // DOMTokenList(2) ["btn", "btn-dark", value: "btn btn-dark"]
+  // const output = document.getElementById('output');
+  // output.innerHTML = '<h3>' + e.target.id + '</h3>';
+  // console.log(e.type); // click
+  // console.log(e.clientX); // 120
+  // console.log(e.clientY); // 120
+  // console.log(e.offsetX); // 120
+  // console.log(e.offsetY); // 120
+  // console.log(e.altKey); // false
+  // console.log(e.ctrlKey); // false
+  // console.log(e.shiftKey); // false
+}
+
+const button2 = document.getElementById('button')
+
+button2.addEventListener('click', runEvent);
+button2.addEventListener('dblclick', runEvent);
+button2.addEventListener('mousedown', runEvent);
+button2.addEventListener('mouseup', runEvent);
+
+function runEvent(e) {
+  console.log('Event Type: ' + e.type); // Event Type: click
+}
