@@ -33,21 +33,17 @@ function showGameOver(){
     finalScore.innerHTML = counted();
     score.style.display = "none"; // hide score
     gameOver.style.display = "block"; // show game over
-    block.style.display = "none";
-}
+    block.style.animation = "none"; // stop block
+  }
 
 let checkDead = setInterval(function() {
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
     if (blockLeft < 20 && blockLeft > -20 && characterTop >= 130){
-        block.style.animation = "none";
-
         showGameOver();
 
         counter=0;
-
-        block.style.animation = "block 1s infinite linear";
     } else {
         counter++;
         scoreSpan.innerHTML = counted();
