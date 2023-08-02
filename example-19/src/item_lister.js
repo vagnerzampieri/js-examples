@@ -217,12 +217,49 @@ function buttonClick(e) {
 }
 
 const button2 = document.getElementById('button')
+const box = document.getElementById('box');
 
-button2.addEventListener('click', runEvent);
-button2.addEventListener('dblclick', runEvent);
-button2.addEventListener('mousedown', runEvent);
-button2.addEventListener('mouseup', runEvent);
+// button2.addEventListener('click', runEvent);
+// button2.addEventListener('dblclick', runEvent);
+// button2.addEventListener('mousedown', runEvent);
+// button2.addEventListener('mouseup', runEvent);
+
+// box.addEventListener('mouseenter', runEvent); // fires when mouse enters the box, but not when it enters a child element
+// box.addEventListener('mouseleave', runEvent); // fires when mouse leaves the box, but not when it leaves a child element
+// box.addEventListener('mouseover', runEvent); // fires when mouse enters the box, including when it enters a child element
+// box.addEventListener('mouseout', runEvent); // fires when mouse leaves the box, including when it leaves a child element
+
+// box.addEventListener('mousemove', runEvent); // fires when mouse moves inside the box, including when it moves inside a child element
+
+let itemInput = document.querySelector('input[type="text"]');
+let form = document.querySelector('form');
+let output = document.getElementById('output');
+let select = document.querySelector('select');
+
+// itemInput.addEventListener('keydown', runEvent); // fires when a key is pressed
+// itemInput.addEventListener('keyup', runEvent); // fires when a key is released
+// itemInput.addEventListener('keypress', runEvent); // fires when a key is pressed
+// itemInput.addEventListener('focus', runEvent); // fires when the input field is clicked
+// itemInput.addEventListener('blur', runEvent); // fires when the input field is clicked away from
+// itemInput.addEventListener('cut', runEvent); // fires when the input field is cut
+// itemInput.addEventListener('paste', runEvent); // fires when the input field is pasted
+// itemInput.addEventListener('input', runEvent); // fires when the input field is cut, pasted, or typed into
+
+// select.addEventListener('change', runEvent); // fires when a new option is selected
+// select.addEventListener('input', runEvent); // fires when a new option is selected
+
+// form.addEventListener('submit', runEvent); // fires when the submit button is clicked
 
 function runEvent(e) {
+  e.preventDefault();
   console.log('Event Type: ' + e.type); // Event Type: click
+
+  // output.innerHTML = '<h3>MouseX: ' + e.offsetX + '</h3><h3>MouseY: ' + e.offsetY + '</h3>'; // MouseX: 120 MouseY: 120, gets the position of the mouse relative to the box
+
+  // box.style.backgroundColor = 'rgb(' + e.offsetX + ', ' + e.offsetY + ', 40)'; // changes the background color of the box based on the position of the mouse relative to the box
+
+  // document.body.style.backgroundColor = 'rgb(' + e.offsetX + ', ' + e.offsetY + ', 40)'; // changes the background color of the body based on the position of the mouse relative to the body
+
+  // console.log(e.target.value); // gets the value of the input field
+  // output.innerHTML = '<h3>' + e.target.value + '</h3>'; // displays the value of the input field in the output div
 }
