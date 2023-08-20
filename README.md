@@ -186,3 +186,11 @@ mutation {
   - `npm run build`
   - `npm run preview`
   - `python -m http.server -d dist 3000` - Vai rodar o build na porta 3000
+
+#### Vite + Google Extension
+  - https://www.freecodecamp.org/news/building-chrome-extension/
+  - `cd example-20`
+  - `npm run dev`
+  - `npm run build`
+  - `npm run preview`
+  - add `dist` folder in `chrome://extensions/` -> `Load unpacked`
