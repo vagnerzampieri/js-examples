@@ -194,3 +194,10 @@ mutation {
   - `npm run build`
   - `npm run preview`
   - add `dist` folder in `chrome://extensions/` -> `Load unpacked`
+
+#### Vite + Vitest + Typescript
+  - `cd example-21`
+  - `npm run dev`
+  - `npm run build`
+  - `npm run preview`
+  - `npm run test`
