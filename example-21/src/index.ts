@@ -70,3 +70,9 @@ interface Bear extends Animal {
 export function printBear(bear: Bear): string {
   return `The bear ${bear.name} ${bear.honey ? 'has' : 'does not have'} honey`
 }
+
+// Type assertions
+
+// const myCanvas = document.getElementById('main_canvas') as HTMLCanvasElement
+
+// const myCanvas2 = <HTMLCanvasElement>document.getElementById('main_canvas')
