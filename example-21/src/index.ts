@@ -47,6 +47,7 @@ export function welcomePeople(people: string[] | string): string {
 }
 
 // Type aliases
+// type cannot be change after created
 type Point = {
   x: number,
   y: number
