@@ -1,7 +1,8 @@
 import moment from 'moment';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { sum, subtract, greet, convertDate,
-         printName, printId, welcomePeople } from './index';
+         printName, printId, welcomePeople,
+         printCoordinates, printBear } from './index';
 
 describe('all tests', () => {
   // always set the system time to a fixed date
@@ -65,6 +66,22 @@ describe('all tests', () => {
 
     it('welcomes person', () => {
       expect(welcomePeople('John')).toBe('Welcome John');
+    });
+  })
+
+  describe('printCoordinates', () => {
+    it('prints the coordinates of a point', () => {
+      expect(printCoordinates({ x: 1, y: 2 })).toBe('(1, 2)');
+    });
+  })
+
+  describe('printBear', () => {
+    it('prints the complete phrase', () => {
+      expect(printBear({ name: 'Yogi', honey: true })).toBe('The bear Yogi has honey');
+    });
+
+    it('prints with does not have', () => {
+      expect(printBear({ name: 'Yogi', honey: false })).toBe('The bear Yogi does not have honey');
     });
   })
 })

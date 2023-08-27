@@ -45,3 +45,27 @@ export function welcomePeople(people: string[] | string): string {
     return `Welcome ${people}`
   }
 }
+
+// Type aliases
+type Point = {
+  x: number,
+  y: number
+}
+
+export function printCoordinates(point: Point): string {
+  return `(${point.x}, ${point.y})`
+}
+
+// Interfaces
+// is more flexibe to extend than type aliases
+interface Animal {
+  name: string
+}
+
+interface Bear extends Animal {
+  honey: boolean
+}
+
+export function printBear(bear: Bear): string {
+  return `The bear ${bear.name} ${bear.honey ? 'has' : 'does not have'} honey`
+}
