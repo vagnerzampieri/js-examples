@@ -1,14 +1,39 @@
-import { describe, it, expect } from 'vitest';
-import { sum, subtract } from './index';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { sum, subtract, greet, convertDate } from './index';
+import moment from 'moment';
 
-describe('sum', () => {
-  it('adds two numbers', () => {
-    expect(sum(1, 2)).toBe(3);
-  });
-})
+describe('all tests', () => {
+  // always set the system time to a fixed date
+  // always works with momentjs
+  beforeEach(() => {
+    const date = '2023-08-27';
+    const dateInMillis = moment(date).toDate().getTime();
+    const dateObject = new Date(dateInMillis);
 
-describe('subtract', () => {
-  it('subtracts two numbers', () => {
-    expect(subtract(2, 1)).toBe(1);
+    vi.setSystemTime(dateObject);
   });
+
+  describe('sum', () => {
+    it('adds two numbers', () => {
+      expect(sum(1, 2)).toBe(3);
+    });
+  })
+
+  describe('subtract', () => {
+    it('subtracts two numbers', () => {
+      expect(subtract(2, 1)).toBe(1);
+    });
+  })
+
+  describe('greet', () => {
+    it('greets a person with a date', () => {
+      expect(greet('John', new Date())).toBe('Hello, John, today is Sun Aug 27 2023!');
+    });
+  })
+
+  describe('convertDate', () => {
+    it('greets a person with a date', () => {
+      expect(convertDate('2020-01-01')).toBe('Wed Jan 01 2020');
+    });
+  })
 })
