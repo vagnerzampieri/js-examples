@@ -1,6 +1,7 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { sum, subtract, greet, convertDate } from './index';
 import moment from 'moment';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { sum, subtract, greet, convertDate,
+         printName, printId, welcomePeople } from './index';
 
 describe('all tests', () => {
   // always set the system time to a fixed date
@@ -34,6 +35,36 @@ describe('all tests', () => {
   describe('convertDate', () => {
     it('greets a person with a date', () => {
       expect(convertDate('2020-01-01')).toBe('Wed Jan 01 2020');
+    });
+  })
+
+  describe('printName', () => {
+    it('prints the name of a person', () => {
+      expect(printName({ first: 'John', last: 'Doe' })).toBe('Hello, John Doe');
+    });
+
+    it('prints the name of a person without last name', () => {
+      expect(printName({ first: 'John' })).toBe('Hello, John undefined');
+    });
+  })
+
+  describe('printId', () => {
+    it('prints the id of a person', () => {
+      expect(printId(1)).toBe('1');
+    });
+
+    it('prints the id of a person as string', () => {
+      expect(printId('1')).toBe('1');
+    });
+  })
+
+  describe('welcomePeople', () => {
+    it('welcomes people', () => {
+      expect(welcomePeople(['John', 'Jane' ])).toBe('Welcome John, Jane');
+    });
+
+    it('welcomes person', () => {
+      expect(welcomePeople('John')).toBe('Welcome John');
     });
   })
 })
