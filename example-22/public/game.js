@@ -1,20 +1,12 @@
 class El {
-  static selector(selector) {
-    return document.querySelector(selector);
-  }
-
-  static selectorAll(selector) {
-    return document.querySelectorAll(selector);
-  }
-}
-
-const selectors = {
-  boardContainer: El.selector('.board-container'),
-  board: El.selector('.board'),
-  moves: El.selector('.moves'),
-  timer: El.selector('.timer'),
-  start: El.selector('button'),
-  win: El.selector('.win')
+  static selector(selector) { return document.querySelector(selector) };
+  static selectorAll(selector) { return document.querySelectorAll(selector) };
+  static boardContainer() { return this.selector('.board-container') };
+  static board() { return this.selector('.board') };
+  static moves() { return this.selector('.moves') };
+  static timer() { return this.selector('.timer') };
+  static start() { return this.selector('button') };
+  static win() { return this.selector('.win') };
 }
 
 const state = {
@@ -54,7 +46,7 @@ const pickRandom = (array, items) => {
 }
 
 const generateGame = () => {
-  const dimensions = selectors.board.getAttribute('data-dimension')
+  const dimensions = El.board().getAttribute('data-dimension')
 
   if (dimensions % 2 !== 0) throw new Error("The dimension of the board must be an even number.");
 
@@ -74,18 +66,21 @@ const generateGame = () => {
 
   const parser = new DOMParser().parseFromString(cards, 'text/html')
 
-  selectors.board.replaceWith(parser.querySelector('.board'))
+  El.board().replaceWith(parser.querySelector('.board'))
+}
+
+const timer = () => {
+  state.totalTime++
+  El.timer().innerText = `time: ${state.totalTime} sec`
 }
 
 const startGame = () => {
   state.gameStarted = true
-  selectors.start.classList.add('disabled')
+  El.start().classList.add('disabled')
 
   state.loop = setInterval(() => {
-      state.totalTime++
-
-      selectors.moves.innerText = `${state.totalFlips} moves`
-      selectors.timer.innerText = `time: ${state.totalTime} sec`
+      timer()
+      El.moves().innerText = `${state.totalFlips} moves`
   }, 1000)
 }
 
@@ -108,8 +103,8 @@ const flipBackCards = () => {
 
 const wonTheGame = (state) => {
   setTimeout(() => {
-      selectors.boardContainer.classList.add('flipped')
-      selectors.win.innerHTML = `
+      El.boardContainer().classList.add('flipped')
+      El.win().innerHTML = `
           <span class="win-text">
               You won!<br />
               with <span class="highlight">${state.totalFlips}</span> moves<br />
