@@ -50,7 +50,6 @@ button {
 .board, .win {
   border-radius: 5px;
   box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
-  /* background: linear-gradient(325deg, #1CB5E0 0%, #000851 100%); */
   background: #1CB5E0;
   transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
   backface-visibility: hidden;
