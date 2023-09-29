@@ -1,5 +1,5 @@
 class El {
-  // create  a function to get the element
+  // create a function to get the element
   static selector(selector) {
     return document.querySelector(selector);
   }
