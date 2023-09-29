@@ -6,3 +6,4 @@ iria criar uma configuração com o que seja preciso para ela ganhar o brinde no
 - melhorar código
 - adicionar reset
 - adicionar cupom caso o ganhador acerte o número de movimentos (via API)
+- ao startar o memory game, mostrar todas as cartas e depos dar shuffle
