@@ -1,0 +1,58 @@
+body {
+    background-color: #ff4814;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    /* top: 50%;
+    left: 50%; */
+    /* margin-left: -64.5px;
+    margin-top: -85.5px; */
+    transform: translate(-50%, -50%);
+}
+
+.ghost {
+    animation: float 3s ease-out infinite;
+    width: 127.433px;
+    height: 132.743px;
+}
+
+@keyframes float {
+    50% {
+        transform: translate(0,20px); /* 100px, 20px */
+   }
+}
+
+.shadowFrame {
+    width: 130px;
+    margin-top: 15px;
+}
+
+.shadow {
+    animation: shrink 3s ease-out infinite;
+    transform-origin: center center;
+    width: 122.436px;
+    height: 39.744px;
+}
+
+.shadow ellipse {
+    transform-origin: center center;
+}
+
+@keyframes shrink {
+    0% {
+        width: 90%;
+        margin: 0 5%;
+   }
+    50% {
+        width: 60%;
+        margin: 0 15%; /* 95% */
+   }
+    100% {
+        width: 90%;
+        margin: 0 5%;
+   }
+}
+

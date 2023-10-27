@@ -205,3 +205,7 @@ mutation {
 #### Memory Game
   - https://webtips.dev/memory-game-in-javascript
 
+#### Solo Ghost
+  - https://css-tricks.com/favorite-halloween-pens/
+  - https://codepen.io/ste-vg/pen/gwyGpm
+  - `cd solo-ghost`
