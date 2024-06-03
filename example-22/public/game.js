@@ -75,6 +75,10 @@ class Game {
   }
 }
 
+const mountUrlToCart = (sku) => {
+  return `https://secure.nuuvem.com/br-pt/cart/add_products?skus=${15540}&quantities=1&coupon=zampi-123`
+}
+
 const timer = () => {
   state.totalTime++
   El.timer().innerText = `time: ${state.totalTime} sec`
@@ -114,7 +118,8 @@ const wonTheGame = (state) => {
           <span class="win-text">
               You won!<br />
               with <span class="highlight">${state.totalFlips}</span> moves<br />
-              under <span class="highlight">${state.totalTime}</span> seconds
+              under <span class="highlight">${state.totalTime}</span> seconds<br />
+              <a href="${mountUrlToCart(15540)}" target="_blank">Buy now</a>
           </span>
       `
 

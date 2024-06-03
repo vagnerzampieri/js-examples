@@ -124,6 +124,6 @@ button {
   color: #282A3A;
 }
 
-.highlight {
+.highlight, a {
   color: #1CB5E0;
 }
