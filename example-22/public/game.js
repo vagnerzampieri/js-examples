@@ -17,6 +17,50 @@ const state = {
   loop: null
 }
 
+const API_TOKEN = 'API_TOKEN'
+
+const mountUrlToCart = (sku) => {
+  return `https://secure.dev.nuuvem.co/br-pt/cart/add_products?skus=${sku}&quantities=1&coupon=zampi-123`
+}
+
+// Define the API endpoint
+const url = 'https://api.dev.nuuvem.co/v3/br/products';
+
+// Function to handle API response
+function handleResponse(response) {
+  if (!response.ok) {
+    throw new Error(`API call failed with status ${response.status}`);
+  }
+  return response.json();
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Function to fetch data from the API
+async function fetchData() {
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${API_TOKEN}`,
+        'Accept': 'application/vnd.api+json',
+        'Accept-Language': 'pt'
+      }
+    });
+
+    const data = await handleResponse(response);
+    return data.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
 class Game {
   static config() {
     return {
@@ -25,20 +69,34 @@ class Game {
     }
   }
 
-  static renderCards() {
+  static async renderCards() {
     const { dimensions, emojis } = this.config()
 
-    const picks = this.pickRandom(emojis, (dimensions * dimensions) / 2)
+    const products = await fetchData();
+    const fetchedProducts = products.map(product => product.attributes)
+
+    const picks = this.pickRandom(fetchedProducts, (dimensions * dimensions) / 2)
     const items = this.shuffle([...picks, ...picks])
+    // const cards = `
+    //     <div class="board" style="grid-template-columns: repeat(${dimensions}, auto)">
+    //         ${items.map(item => `
+    //             <div class="card">
+    //                 <div class="card-front"></div>
+    //                 <div class="card-back">${item}</div>
+    //             </div>
+    //         `).join('')}
+    //    </div>
+    // `
+
     const cards = `
         <div class="board" style="grid-template-columns: repeat(${dimensions}, auto)">
             ${items.map(item => `
                 <div class="card">
                     <div class="card-front"></div>
-                    <div class="card-back">${item}</div>
+                    <div class="card-back"><img src="${item.images.boxshot.url}" width="100%" height="100%" /></div>
                 </div>
             `).join('')}
-       </div>
+      </div>
     `
 
     const parser = new DOMParser().parseFromString(cards, 'text/html')
@@ -75,10 +133,6 @@ class Game {
   }
 }
 
-const mountUrlToCart = (sku) => {
-  return `https://secure.nuuvem.com/br-pt/cart/add_products?skus=${15540}&quantities=1&coupon=zampi-123`
-}
-
 const timer = () => {
   state.totalTime++
   El.timer().innerText = `time: ${state.totalTime} sec`
@@ -97,7 +151,8 @@ const startGame = () => {
 const flipBackCards = () => {
   const flippedCards = El.selectorAll('.flipped:not(.matched)')
 
-  if (flippedCards[0].innerText === flippedCards[1].innerText) {
+  console.log(flippedCards);
+  if (flippedCards[0].innerHTML === flippedCards[1].innerHTML) {
       flippedCards[0].classList.add('matched')
       flippedCards[1].classList.add('matched')
   }
@@ -111,15 +166,21 @@ const flipBackCards = () => {
   }, 1000)
 }
 
-const wonTheGame = (state) => {
-  setTimeout(() => {
+const wonTheGame = async (state) => {
+  setTimeout(async () => {
+      const products = await fetchData();
+      const shuffledData = shuffleArray(products);
+      const randomIndex = Math.floor(Math.random() * shuffledData.length);
+      const product = shuffledData[randomIndex];
+
       El.boardContainer().classList.add('flipped')
       El.win().innerHTML = `
           <span class="win-text">
               You won!<br />
               with <span class="highlight">${state.totalFlips}</span> moves<br />
               under <span class="highlight">${state.totalTime}</span> seconds<br />
-              <a href="${mountUrlToCart(15540)}" target="_blank">Buy now</a>
+              <a href="${mountUrlToCart(product.attributes.sku)}" target="_blank">Buy now with discount</a><br />
+              <img src="${product.attributes.images.boxshot.url}" alt="${product.attributes.name}" />
           </span>
       `
 

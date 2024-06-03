@@ -127,3 +127,7 @@ button {
 .highlight, a {
   color: #1CB5E0;
 }
+
+img {
+  width: 50%;
+}
